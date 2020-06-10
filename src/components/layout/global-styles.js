@@ -2,16 +2,19 @@ import React, { useContext } from 'react';
 import { Global, css } from '@emotion/core';
 
 import { AboutContext } from '../../context/about/AboutContext';
+import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const GlobalStyles = () => {
 
   const { color } = useContext(AboutContext);
+  const { dark } = useContext(ThemeContext);
 
   return (
     <Global
       styles={css`
         :root {
-          --dark: #1F2124;
+          --dark: ${dark ? '#1F2124' : '#FEFEFE'};
+          --black: #1f2124;
           --orange: #F6B352;
           --white: #F2F2F2;
           --gray: #BDBDBD;

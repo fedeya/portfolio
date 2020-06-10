@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
 import { ButtonLink } from '../ui/button';
+
+import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const Container = styled.div`
   /* background-color: var(--dark); */
@@ -32,7 +34,7 @@ const Icon = styled.i`
 `;
 
 const Title = styled.h1`
-  color: var(--white);
+  color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
   justify-self: flex-start;
 
   span.color {
@@ -64,6 +66,8 @@ const Image = styled(Img)`
 
 function HomeContent() {
 
+  const { dark } = useContext(ThemeContext);
+
   const { image } = useStaticQuery(graphql`
     query {
       image: file(relativePath: { eq: "me.jpeg" }) {
@@ -81,7 +85,7 @@ function HomeContent() {
     <Container>
       <Image alt="Me" fixed={image.sharp.fixed} />
       <Column>
-        <Title>
+        <Title dark={dark}>
           <span className="block">
             I’m <span className="color">Federico Minaya</span>.
             </span>

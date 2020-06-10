@@ -5,6 +5,7 @@ import { useWindowWidth } from '@react-hook/window-size';
 import styled from '@emotion/styled';
 
 import { AboutContext } from '../../context/about/AboutContext';
+import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const Nav = styled.nav`
   background-color: var(--dark);
@@ -76,6 +77,10 @@ const NavLink = styled(Link)`
     border-bottom: 1px solid ${props => props.color ? props.color : 'var(--orange)'};;
     animation: appear 500ms ease;
   }
+
+  &:hover {
+    color: ${props => props.color ? props.color : 'var(--orange)'};
+  }
 `;
 
 const NavBranch = styled(Link)`
@@ -127,6 +132,17 @@ const MenuButton = styled.button`
   }
 `;
 
+const DarkModeButton = styled.button`
+  font-size: 2.5rem;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  i {
+    color: ${props => !props.dark ? 'var(--black)' : 'var(--gray)'};
+  }
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -136,6 +152,7 @@ const Container = styled.div`
 function Header() {
 
   const { color } = useContext(AboutContext);
+  const { dark, setDark } = useContext(ThemeContext);
 
   const [opened, setOpened] = useState(false);
   const width = useWindowWidth();
@@ -147,12 +164,19 @@ function Header() {
   }, [width, opened])
 
   const toggle = () => setOpened(!opened);
+  const toggleTheme = () => setDark(!dark);
 
   return (
     <header>
       <Nav opened={opened}>
         <Container>
           <NavBranch color={color} to="/">FM</NavBranch>
+          <DarkModeButton dark={dark} onClick={toggleTheme}>
+            {
+              dark ? (<i className="bx bxs-sun"></i>)
+              : (<i className="bx bxs-moon"></i>)
+            }
+          </DarkModeButton>
           <MenuButton opened={opened} onClick={toggle}>
             {
               !opened ? ( <i className="bx bx-menu-alt-right"></i> ) 
