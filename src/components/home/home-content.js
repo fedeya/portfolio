@@ -78,22 +78,20 @@ function HomeContent() {
 
 
   return (
-    <>
-      <Container>
-        <Image alt="Me" fixed={image.sharp.fixed} />
-        <Column>
-          <Title>
-            <span className="block">
-              I’m <span className="color">Federico Minaya</span>.
+    <Container>
+      <Image alt="Me" fixed={image.sharp.fixed} />
+      <Column>
+        <Title>
+          <span className="block">
+            I’m <span className="color">Federico Minaya</span>.
             </span>
-            <span className="color block">Frontend Developer</span>
-          </Title>
-          <ButtonLink to="/about">
-            Next <Icon className="bx bx-right-arrow-alt"></Icon>
-          </ButtonLink>
-        </Column>
-      </Container>
-    </>
+          <span className="color block">Frontend Developer</span>
+        </Title>
+        <ButtonLink to="/about">
+          Next <Icon className="bx bx-right-arrow-alt"></Icon>
+        </ButtonLink>
+      </Column>
+    </Container>
   );
 }
 
