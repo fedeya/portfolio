@@ -17,6 +17,16 @@ const Nav = styled.nav`
   width: ${props => props.opened ? '100%' : 'auto'};
   top: 0;
 
+  @keyframes open {
+    0% {
+      transform: translateY(-200px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
   ul {
     display: ${props => props.opened ? 'flex' : 'none'};
     list-style: none;
@@ -27,6 +37,7 @@ const Nav = styled.nav`
     justify-content: ${props => props.opened ? 'space-around' : 'center'};
     margin-right: 20px;
     font-size: ${props => props.opened ? '30px': '19px'};
+    ${props => props.opened && 'animation: open 1s ease 1'};
 
     li {
       margin-right: 10px;
@@ -47,9 +58,21 @@ const Nav = styled.nav`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: var(--gray);
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
 
   &.active {
     color: var(--orange);
+    border-bottom: 1px solid var(--orange);
+    animation: appear 500ms ease;
   }
 `;
 
@@ -71,6 +94,31 @@ const MenuButton = styled.button`
   outline: none;
   color: var(--gray);
   cursor: pointer;
+  
+  @keyframes open {
+    0% {
+      transform: scale(0);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(320deg);
+    }
+
+    100% {
+      transform: scale(90deg);
+    }
+  }
+
+  i {
+    animation: ${props => props.opened ? 'rotate' : 'open'} 500ms ease;
+  }
+  
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -92,7 +140,7 @@ function Header() {
     if(width >= 768 && opened) {
       setOpened(false);
     }
-  }, [width])
+  }, [width, opened])
 
   const toggle = () => setOpened(!opened);
 
@@ -101,8 +149,11 @@ function Header() {
       <Nav opened={opened}>
         <Container>
           <NavBranch to="/">FM</NavBranch>
-          <MenuButton onClick={toggle}>
-            <i className={!opened ? 'bx bx-menu-alt-right' : 'bx bx-x'}></i>
+          <MenuButton opened={opened} onClick={toggle}>
+            {
+              !opened ? ( <i className="bx bx-menu-alt-right"></i> ) 
+              : ( <i className="bx bx-x"></i> )
+            }
           </MenuButton>
         </Container>
         <ul>
