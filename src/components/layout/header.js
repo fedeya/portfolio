@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'gatsby';
 import { useWindowWidth } from '@react-hook/window-size';
 
 import styled from '@emotion/styled';
+
+import { AboutContext } from '../../context/about/AboutContext';
 
 const Nav = styled.nav`
   background-color: var(--dark);
@@ -70,15 +72,15 @@ const NavLink = styled(Link)`
   }
 
   &.active {
-    color: var(--orange);
-    border-bottom: 1px solid var(--orange);
+    color: ${props => props.color ? props.color : 'var(--orange)'};
+    border-bottom: 1px solid ${props => props.color ? props.color : 'var(--orange)'};;
     animation: appear 500ms ease;
   }
 `;
 
 const NavBranch = styled(Link)`
   text-decoration: none;
-  color: var(--orange);
+  color: ${props => props.color ? props.color : 'var(--orange)'};
   font-size: 59px;
   font-family: 'Roboto Slab', serif;
 
@@ -133,6 +135,8 @@ const Container = styled.div`
 
 function Header() {
 
+  const { color } = useContext(AboutContext);
+
   const [opened, setOpened] = useState(false);
   const width = useWindowWidth();
 
@@ -148,7 +152,7 @@ function Header() {
     <header>
       <Nav opened={opened}>
         <Container>
-          <NavBranch to="/">FM</NavBranch>
+          <NavBranch color={color} to="/">FM</NavBranch>
           <MenuButton opened={opened} onClick={toggle}>
             {
               !opened ? ( <i className="bx bx-menu-alt-right"></i> ) 
@@ -158,22 +162,22 @@ function Header() {
         </Container>
         <ul>
           <li>
-            <NavLink activeClassName="active" to="/">
+            <NavLink color={color} activeClassName="active" to="/">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/about">
+            <NavLink color={color} activeClassName="active" to="/about">
               About
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/projects">
+            <NavLink color={color} activeClassName="active" to="/projects">
               Projects
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/contact">
+            <NavLink color={color} activeClassName="active" to="/contact">
               Contact
             </NavLink>
           </li>
