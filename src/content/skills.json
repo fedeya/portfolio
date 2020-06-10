@@ -1,0 +1,20 @@
+{
+  "title": "Skills",
+  "content": [
+    {
+      "name": "React",
+      "color": "#61DAFB",
+      "logo": "bx bxl-react"
+    },
+    {
+      "name": "JavaScript",
+      "color": "#F0DB4F",
+      "logo":"bx bxl-javascript"
+    },
+    {
+      "name": "NodeJS",
+      "color": "#3C873A",
+      "logo": "bx bxl-nodejs"
+    }
+  ]
+}
