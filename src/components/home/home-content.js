@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 
-import Button from '../ui/button';
+import { ButtonLink } from '../ui/button';
 
 const Container = styled.div`
   /* background-color: var(--dark); */
@@ -41,6 +41,13 @@ const Title = styled.h1`
 
   span.block {
     display: block;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 2.1rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 3rem;
   }
 `;
 
@@ -81,9 +88,9 @@ function HomeContent() {
             </span>
             <span className="color block">Frontend Developer</span>
           </Title>
-          <Button>
+          <ButtonLink to="/about">
             Next <Icon className="bx bx-right-arrow-alt"></Icon>
-          </Button>
+          </ButtonLink>
         </Column>
       </Container>
     </>
