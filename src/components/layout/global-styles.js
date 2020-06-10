@@ -11,6 +11,18 @@ const GlobalStyles = () => (
         --gray: #BDBDBD;
       }
 
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--dark);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--orange);
+      }
+
       *, *:before, *:after {
         box-sizing: border-box;
         margin: 0;
@@ -19,8 +31,10 @@ const GlobalStyles = () => (
 
       body {
         font-family: 'PT Sans', sans-serif;
+        height: 100%;
         /* background-color: var(--dark); */
         /* color: var(--white); */
+        background-color: var(--dark);
       }
 
       h1, h2, h3 {
