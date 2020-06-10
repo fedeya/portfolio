@@ -1,6 +1,11 @@
 import React, { useState, createContext } from 'react';
 
-export const AboutContext = createContext();
+const defaultState = {
+  color: null,
+  setColor: () => {}
+}
+
+export const AboutContext = createContext(defaultState);
 
 function AboutProvider({ children }) {
 
