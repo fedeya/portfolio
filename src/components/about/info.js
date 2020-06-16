@@ -13,12 +13,8 @@ const Container = styled.div`
     color: ${props => props.color ? props.color : 'var(--orange)'};
     font-size: 1.4rem;
     span {
-      color: var(--gray);
+      color: ${props => props.dark ? 'var(--gray)' : 'var(--black)'};
       font-size: 1.3rem;
-
-      &:hover {
-        color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
-      }
     }
   }
 `;
@@ -31,6 +27,9 @@ const Icons = styled.div`
   
   a {
     color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
+    &:hover {
+      color: var(--orange);
+    }
   }
 
   i {

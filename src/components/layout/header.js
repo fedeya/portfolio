@@ -19,6 +19,7 @@ const Nav = styled.nav`
   height: ${props => props.opened ? '100%' : 'auto'};
   width: ${props => props.opened ? '100%' : 'auto'};
   top: 0;
+  z-index: 10;
 
   @keyframes open {
     0% {
@@ -43,7 +44,7 @@ const Nav = styled.nav`
     ${props => props.opened && 'animation: open 1s ease 1'};
 
     li {
-      margin-right: 10px;
+      margin: 0 1rem;
 
       &:last-of-type {
         margin-right: 0;
@@ -86,11 +87,11 @@ const NavLink = styled(Link)`
 const NavBranch = styled(Link)`
   text-decoration: none;
   color: ${props => props.color ? props.color : 'var(--orange)'};
-  font-size: 59px;
+  font-size: 3rem;
   font-family: 'Roboto Slab', serif;
 
   @media screen and (min-width: 768px) {
-    margin-left: 20px;
+    margin: 0px 1.5rem;
   }
 `;
 
