@@ -49,9 +49,8 @@ function Info() {
     <Container color={color} dark={dark}>
       <p>Full Name<span>: Federico Minaya</span></p>
       <p>Age<span>: 16</span></p>
-      <p>Email<span>: elfedeminaya@gmail.com</span></p>
       <p>Residence<span>: Argentina</span></p>
-      <p>Description<span>: i very like work with new and modern technologies using the best practices</span></p>
+      <p>Description<span>: i love work with new and modern technologies using the best practices</span></p>
       <Icons dark={dark}>
         <a href="https://www.github.com/Fedeya" target="_blank" rel="noopener noreferrer">
           <i className="bx bxl-github"></i>
