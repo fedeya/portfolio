@@ -15,10 +15,11 @@ const Nav = styled.nav`
   justify-content: space-between;
   padding: 10px;
   margin: 0;
-  position: ${props => props.opened ? 'absolute' : 'sticky'};
+  position: ${props => props.opened ? 'fixed' : 'sticky'};
   height: ${props => props.opened ? '100%' : 'auto'};
   width: ${props => props.opened ? '100%' : 'auto'};
-  top: 0;
+  top: 10px;
+  left: 0px;
   z-index: 10;
 
   @keyframes open {
@@ -35,26 +36,23 @@ const Nav = styled.nav`
     display: ${props => props.opened ? 'flex' : 'none'};
     list-style: none;
     flex-direction: ${props => props.opened ? 'column' : 'row'};
-    height: 100%;
+    height: ${props => props.opened ? '80%' : '90%'};
     width: 100%;
     align-items: center;
-    justify-content: ${props => props.opened ? 'space-around' : 'center'};
-    margin-right: 20px;
+    margin: 0 1rem;
+    justify-content: ${props => props.opened ? 'space-around' : 'flex-end'};
     font-size: ${props => props.opened ? '30px': '19px'};
     ${props => props.opened && 'animation: open 1s ease 1'};
 
     li {
-      margin: 0 1rem;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+      margin: 0 1.3rem;
     }
 
     @media screen and (min-width: 768px) {
       display: flex;
       position: sticky;
-      top: 0;
+      align-items: flex-start;
+      top: 10;
     }
   }
 `;
