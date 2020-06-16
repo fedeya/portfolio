@@ -1,0 +1,16 @@
+{
+  "title": "Projects",
+  "projects": [
+    {
+      "title": "Gatsby Hotel",
+      "image": "gatsbyhotel",
+      "repo": "https://github.com/Fedeya/gatsby-hotel",
+      "link": "https://jolly-shockley-23149a.netlify.app/"
+    },
+    {
+      "title": "Mern Books",
+      "image": "mern-books",
+      "repo": "https://github.com/Fedeya/mern-books"
+    }
+  ]
+}
