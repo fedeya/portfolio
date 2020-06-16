@@ -31,7 +31,7 @@ function Skills() {
     <Container>
       {
         skills.content.map(skill => (
-          <Skill color={skill.color}>
+          <Skill key={skill.name} color={skill.color}>
             <i className={skill.logo}></i>
             <h3>{skill.name}</h3>
           </Skill>
