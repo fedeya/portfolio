@@ -18,8 +18,13 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 40rem;
+  width: 90%;
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 40rem;
+    margin: 0 auto;
+  }
 `;
 
 const Field = styled.input`
