@@ -7,6 +7,7 @@ const Card = styled.div`
   border-radius: 10px;
   background-color: #383A3F;
   margin: 1.5rem;
+  width: 70%;
 
   h2 {
     padding: 1rem;
@@ -22,6 +23,10 @@ const Card = styled.div`
     overflow: hidden;
     z-index: 1;
     padding: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 30%;
   }
 `;
 
@@ -55,8 +60,8 @@ function Project({ project }) {
         nodes {
           name
           sharp: childImageSharp {
-            fixed {
-              ...GatsbyImageSharpFixed
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -68,7 +73,7 @@ function Project({ project }) {
 
   return (
     <Card>
-      <Img alt={project.title} fixed={image.sharp.fixed} />
+      <Img alt={project.title} fluid={image.sharp.fluid} />
       <TextContent>
         <h2>{project.title}</h2>
         <Icons>
