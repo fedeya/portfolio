@@ -18,10 +18,11 @@ const Button = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
+  color: var(--dark);
 
   &:hover {
-    background-color: var(--dark);
+    background-color: transparent;
     border: 1px solid var(--orange);
     color: var(--orange);
   }
