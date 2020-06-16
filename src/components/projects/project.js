@@ -10,6 +10,7 @@ const Card = styled.div`
   background-color: ${props => props.dark ? '#383A3F' : '#F2F2F2'};
   margin: 1.5rem;
   width: 70%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 
   h2 {
     padding: 1rem;

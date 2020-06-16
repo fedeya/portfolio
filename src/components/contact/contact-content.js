@@ -42,7 +42,7 @@ const Field = styled.input`
   outline: none;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: #FDFDFD;
+  background-color: ${props => props.dark ? '#F3F3F3' : '#FDFDFD'};
 `;
 
 const FieldArea = styled.textarea`
@@ -54,7 +54,7 @@ const FieldArea = styled.textarea`
   outline: none;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: #FDFDFD;
+  background-color: ${props => props.dark ? '#F3F3F3' : '#FDFDFD'};
 `;
 
 const ButtonForm = styled(Button)`
@@ -77,16 +77,19 @@ function ContactContent() {
           type="text"
           placeholder="Name"
           name="name"
+          dark={dark}
         />
         <Field
           type="email"
           placeholder="Email"
           name="email"
+          dark={dark}
         />
         <FieldArea
           type="text"
           placeholder="Message"
           name="message"
+          dark={dark}
         />
         <ButtonForm>Send</ButtonForm>
       </Form>

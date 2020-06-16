@@ -27,6 +27,8 @@ const Icons = styled.div`
   
   a {
     color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
+    transition: color 200ms ease;
+    
     &:hover {
       color: var(--orange);
     }
