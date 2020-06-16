@@ -10,6 +10,8 @@ import { ThemeContext } from '../../context/theme/ThemeContext';
 const Container = styled.div`
   /* background-color: var(--dark); */
   /* width: 100%; */
+  width: 95%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
