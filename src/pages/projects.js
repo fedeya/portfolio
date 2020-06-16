@@ -1,11 +1,12 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
+import ProjectsContent from '../components/projects/projects-content';
 
 function ProjectsPage() {
   return (
     <Layout>
-      <h1>ProjectsPage Works!</h1>
+      <ProjectsContent />
     </Layout>
   );
 }
