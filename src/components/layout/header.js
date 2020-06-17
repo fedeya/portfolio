@@ -170,13 +170,13 @@ function Header() {
       <Nav opened={opened}>
         <Container>
           <NavBranch color={color} to="/">FM</NavBranch>
-          <DarkModeButton dark={dark} onClick={toggleTheme}>
+          <DarkModeButton aria-label="Change Color Theme" dark={dark} onClick={toggleTheme}>
             {
               dark ? (<i className="bx bxs-sun"></i>)
               : (<i className="bx bxs-moon"></i>)
             }
           </DarkModeButton>
-          <MenuButton opened={opened} onClick={toggle}>
+          <MenuButton aria-label="Menu" opened={opened} onClick={toggle}>
             {
               !opened ? ( <i className="bx bx-menu-alt-right"></i> ) 
               : ( <i className="bx bx-x"></i> )

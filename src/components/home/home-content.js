@@ -93,7 +93,7 @@ function HomeContent() {
             </span>
           <span className="color block">Frontend Developer</span>
         </Title>
-        <ButtonLink to="/about">
+        <ButtonLink aria-label="Next" to="/about">
           Next <Icon className="bx bx-right-arrow-alt"></Icon>
         </ButtonLink>
       </Column>
