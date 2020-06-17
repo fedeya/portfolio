@@ -18,7 +18,7 @@ const Nav = styled.nav`
   position: ${props => props.opened ? 'fixed' : 'sticky'};
   height: ${props => props.opened ? '100%' : 'auto'};
   width: ${props => props.opened ? '100%' : 'auto'};
-  top: 10px;
+  top: 0px;
   left: 0px;
   z-index: 10;
 
