@@ -7,6 +7,11 @@
       "logo": "bx bxl-react"
     },
     {
+      "name": "Redux",
+      "color": "#764abc",
+      "logo": "bx bxl-redux"
+    },
+    {
       "name": "JavaScript",
       "color": "#F0DB4F",
       "logo":"bx bxl-javascript"
@@ -15,6 +20,31 @@
       "name": "NodeJS",
       "color": "#3C873A",
       "logo": "bx bxl-nodejs"
+    },
+    {
+      "name": "Git",
+      "color": "#f34f29",
+      "logo": "bx bxl-git"
+    },
+    {
+      "name": "Vue",
+      "color": "#42b883",
+      "logo": "bx bxl-vuejs"
+    },
+    {
+      "name": "HTML5",
+      "color": "#e34c26",
+      "logo": "bx bxl-html5"
+    },
+    {
+      "name": "CSS3",
+      "color": "#264de4",
+      "logo": "bx bxl-css3"
+    },
+    {
+      "name": "Bootstrap",
+      "color": "#563d7c",
+      "logo": "bx bxl-bootstrap"
     }
   ]
 }
