@@ -1,8 +1,10 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Button from '../ui/button';
+import { yupResolver } from '@hookform/resolvers';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import * as yup from 'yup';
 
 import { ThemeContext } from '../../context/theme/ThemeContext';
 
@@ -85,6 +87,15 @@ const ButtonForm = styled(Button)`
   height: 2.8rem;
 `;
 
+const schema = yup.object({
+  name: yup.string().required('the name is required.'),
+  email: yup
+    .string()
+    .required('the email is required.')
+    .email('enter a valid email.'),
+  message: yup.string().required('the message is required.')
+});
+
 function ContactContent() {
   const { dark } = useContext(ThemeContext);
   const formRef = useRef(null);
@@ -94,7 +105,9 @@ function ContactContent() {
     register,
     formState: { isSubmitting },
     reset
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(schema)
+  });
   const [success, setSuccess] = useState(false);
 
   const onSubmit = async values => {
@@ -130,9 +143,7 @@ function ContactContent() {
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
         <Field
-          ref={register({
-            required: 'the name is required.'
-          })}
+          ref={register}
           type="text"
           placeholder="Name"
           name="name"
@@ -140,21 +151,18 @@ function ContactContent() {
         />
         {errors.name && <Error>{errors.name.message}</Error>}
         <Field
-          ref={register({
-            required: 'the email is required.'
-          })}
+          ref={register}
           type="email"
           placeholder="Email"
           name="email"
           dark={dark}
+          required={false}
         />
         {errors.name && <Error>{errors.email.message}</Error>}
 
         <FieldArea
           type="text"
-          ref={register({
-            required: 'the message is required.'
-          })}
+          ref={register}
           placeholder="Message"
           name="message"
           dark={dark}
