@@ -144,8 +144,6 @@ function ContactContent() {
         name="contact"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="contact" />
         <Field
           ref={register}
           type="text"
