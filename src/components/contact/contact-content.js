@@ -152,9 +152,7 @@ function ContactContent() {
           name="name"
           dark={dark}
         />
-        {errors.name && errors.name.message && (
-          <Error>{errors.name.message}</Error>
-        )}
+        {errors.name && <Error>{errors.name?.message}</Error>}
         <Field
           ref={register}
           type="email"
@@ -163,9 +161,7 @@ function ContactContent() {
           dark={dark}
           required={false}
         />
-        {errors.name && errors.email.message && (
-          <Error>{errors.email.message}</Error>
-        )}
+        {errors.email && <Error>{errors.email?.message}</Error>}
 
         <FieldArea
           type="text"
@@ -174,9 +170,7 @@ function ContactContent() {
           name="message"
           dark={dark}
         />
-        {errors.name && errors.message.message && (
-          <Error>{errors.message.message}</Error>
-        )}
+        {errors.message && <Error>{errors.message?.message}</Error>}
 
         <ButtonForm disabled={isSubmitting} type="submit">
           Send
