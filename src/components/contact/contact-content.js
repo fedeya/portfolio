@@ -111,7 +111,7 @@ function ContactContent() {
   const [success, setSuccess] = useState(false);
 
   const onSubmit = async values => {
-    await axios.post(formRef.current.action, {
+    await axios.post('/', {
       'form-name': 'contact',
       ...values
     });
