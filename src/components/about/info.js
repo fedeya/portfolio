@@ -5,17 +5,18 @@ import { AboutContext } from '../../context/about/AboutContext';
 import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const Container = styled.div`
-  text-align: left;
+  text-align: center;
   display: inline-block;
   margin: 10px auto;
 
   p {
     color: ${props => (props.color ? props.color : 'var(--orange)')};
     font-size: 1.4rem;
-    span {
-      color: ${props => (props.dark ? 'var(--gray)' : 'var(--black)')};
-      font-size: 1.3rem;
-    }
+  }
+
+  span {
+    color: ${props => (props.dark ? 'var(--gray)' : 'var(--black)')};
+    font-size: 1.3rem;
   }
 `;
 
@@ -52,18 +53,20 @@ function Info() {
         Full Name<span>: Federico Minaya</span>
       </p>
       <p>
-        Age<span>: 16</span>
-      </p>
-      <p>
         Residence<span>: Argentina</span>
       </p>
-      <p>
-        Description
-        <span>
-          : i love work with new and modern technologies using the best
-          practices
-        </span>
-      </p>
+      <p>Description</p>
+      <span>
+        I am a self-taught programmer from Argentina, Buenos Aires, Necochea.
+        <br />
+        I am very passionate about working with new technologies, I enjoy
+        creating high performance applications both in Backend and Frontend.
+        <br />
+        I contribute to Open Source projects and programming communities helping
+        other users.
+        <br />
+        In the future I would like to be able to create my own business.
+      </span>
       <Icons dark={dark}>
         <a
           href="https://www.github.com/Fedeya"
