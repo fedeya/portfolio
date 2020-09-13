@@ -12,11 +12,15 @@ const Container = styled.div`
   p {
     color: ${props => (props.color ? props.color : 'var(--orange)')};
     font-size: 1.4rem;
+    width: 100%;
+    overflow-wrap: break-word;
   }
 
   span {
     color: ${props => (props.dark ? 'var(--gray)' : 'var(--black)')};
     font-size: 1.3rem;
+    width: 100%;
+    overflow-wrap: break-word;
   }
 `;
 

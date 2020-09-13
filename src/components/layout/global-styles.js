@@ -45,6 +45,7 @@ const GlobalStyles = () => {
           /* background-color: var(--dark); */
           /* color: var(--white); */
           background-color: var(--dark);
+          box-sizing: border-box;
         }
 
         h1,
