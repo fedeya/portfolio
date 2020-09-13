@@ -106,15 +106,18 @@ function ContactContent() {
     formState: { isSubmitting },
     reset
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    mode: 'all'
   });
   const [success, setSuccess] = useState(false);
 
   const onSubmit = async values => {
-    await axios.post('/', {
-      'form-name': 'contact',
-      ...values
-    });
+    const params = new URLSearchParams();
+    params.append('name', values.name);
+    params.append('email', values.email);
+    params.append('form-name', 'contact');
+    params.append('message', values.message);
+    await axios.post('/', params);
     setSuccess(true);
     reset();
   };
@@ -149,7 +152,9 @@ function ContactContent() {
           name="name"
           dark={dark}
         />
-        {errors.name && <Error>{errors.name.message}</Error>}
+        {errors.name && errors.name.message && (
+          <Error>{errors.name.message}</Error>
+        )}
         <Field
           ref={register}
           type="email"
@@ -158,7 +163,9 @@ function ContactContent() {
           dark={dark}
           required={false}
         />
-        {errors.name && <Error>{errors.email.message}</Error>}
+        {errors.name && errors.email.message && (
+          <Error>{errors.email.message}</Error>
+        )}
 
         <FieldArea
           type="text"
@@ -167,7 +174,9 @@ function ContactContent() {
           name="message"
           dark={dark}
         />
-        {errors.name && <Error>{errors.message.message}</Error>}
+        {errors.name && errors.message.message && (
+          <Error>{errors.message.message}</Error>
+        )}
 
         <ButtonForm disabled={isSubmitting} type="submit">
           Send
