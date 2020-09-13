@@ -10,14 +10,14 @@ import { ThemeContext } from '../../context/theme/ThemeContext';
 const Nav = styled.nav`
   background-color: var(--dark);
   display: flex;
-  flex-direction: ${props => props.opened ? 'column' : 'right'};
+  flex-direction: ${props => (props.opened ? 'column' : 'right')};
   align-items: center;
   justify-content: space-between;
   padding: 10px;
   margin: 0;
-  position: ${props => props.opened ? 'fixed' : 'sticky'};
-  height: ${props => props.opened ? '100%' : 'auto'};
-  width: ${props => props.opened ? '100%' : 'auto'};
+  position: ${props => (props.opened ? 'fixed' : 'sticky')};
+  height: ${props => (props.opened ? '100%' : 'auto')};
+  width: ${props => (props.opened ? '100%' : 'auto')};
   top: 0px;
   left: 0px;
   z-index: 10;
@@ -33,15 +33,15 @@ const Nav = styled.nav`
   }
 
   ul {
-    display: ${props => props.opened ? 'flex' : 'none'};
+    display: ${props => (props.opened ? 'flex' : 'none')};
     list-style: none;
-    flex-direction: ${props => props.opened ? 'column' : 'row'};
-    height: ${props => props.opened ? '80%' : '90%'};
+    flex-direction: ${props => (props.opened ? 'column' : 'row')};
+    height: ${props => (props.opened ? '80%' : '90%')};
     width: 100%;
     align-items: center;
     margin: 0 1rem;
-    justify-content: ${props => props.opened ? 'space-around' : 'flex-end'};
-    font-size: ${props => props.opened ? '30px': '19px'};
+    justify-content: ${props => (props.opened ? 'space-around' : 'flex-end')};
+    font-size: ${props => (props.opened ? '30px' : '19px')};
     ${props => props.opened && 'animation: open 1s ease 1'};
 
     li {
@@ -60,7 +60,7 @@ const Nav = styled.nav`
 const NavLink = styled(Link)`
   text-decoration: none;
   color: var(--gray);
-  
+
   @keyframes appear {
     0% {
       opacity: 0;
@@ -72,19 +72,20 @@ const NavLink = styled(Link)`
   }
 
   &.active {
-    color: ${props => props.color ? props.color : 'var(--orange)'};
-    border-bottom: 1px solid ${props => props.color ? props.color : 'var(--orange)'};;
+    color: ${props => (props.color ? props.color : 'var(--orange)')};
+    border-bottom: 1px solid
+      ${props => (props.color ? props.color : 'var(--orange)')};
     animation: appear 500ms ease;
   }
 
   &:hover {
-    color: ${props => props.color ? props.color : 'var(--orange)'};
+    color: ${props => (props.color ? props.color : 'var(--orange)')};
   }
 `;
 
 const NavBranch = styled(Link)`
   text-decoration: none;
-  color: ${props => props.color ? props.color : 'var(--orange)'};
+  color: ${props => (props.color ? props.color : 'var(--orange)')};
   font-size: 3rem;
   font-family: 'Roboto Slab', serif;
 
@@ -100,7 +101,7 @@ const MenuButton = styled.button`
   outline: none;
   color: var(--gray);
   cursor: pointer;
-  
+
   @keyframes open {
     0% {
       transform: scale(0);
@@ -122,9 +123,8 @@ const MenuButton = styled.button`
   }
 
   i {
-    animation: ${props => props.opened ? 'rotate' : 'open'} 500ms ease;
+    animation: ${props => (props.opened ? 'rotate' : 'open')} 500ms ease;
   }
-  
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -138,7 +138,7 @@ const DarkModeButton = styled.button`
   outline: none;
   cursor: pointer;
   i {
-    color: ${props => !props.dark ? 'var(--black)' : 'var(--gray)'};
+    color: ${props => (!props.dark ? 'var(--black)' : 'var(--gray)')};
   }
 `;
 
@@ -149,7 +149,6 @@ const Container = styled.div`
 `;
 
 function Header() {
-
   const { color } = useContext(AboutContext);
   const { dark, setDark } = useContext(ThemeContext);
 
@@ -157,10 +156,10 @@ function Header() {
   const width = useWindowWidth();
 
   useEffect(() => {
-    if(width >= 768 && opened) {
+    if (width >= 768 && opened) {
       setOpened(false);
     }
-  }, [width, opened])
+  }, [width, opened]);
 
   const toggle = () => setOpened(!opened);
   const toggleTheme = () => setDark(!dark);
@@ -169,18 +168,26 @@ function Header() {
     <header>
       <Nav opened={opened}>
         <Container>
-          <NavBranch color={color} to="/">FM</NavBranch>
-          <DarkModeButton aria-label="Change Color Theme" dark={dark} onClick={toggleTheme}>
-            {
-              dark ? (<i className="bx bxs-sun"></i>)
-              : (<i className="bx bxs-moon"></i>)
-            }
+          <NavBranch color={color} to="/">
+            FM
+          </NavBranch>
+          <DarkModeButton
+            aria-label="Change Color Theme"
+            dark={dark}
+            onClick={toggleTheme}
+          >
+            {dark ? (
+              <i className="bx bxs-sun"></i>
+            ) : (
+              <i className="bx bxs-moon"></i>
+            )}
           </DarkModeButton>
           <MenuButton aria-label="Menu" opened={opened} onClick={toggle}>
-            {
-              !opened ? ( <i className="bx bx-menu-alt-right"></i> ) 
-              : ( <i className="bx bx-x"></i> )
-            }
+            {!opened ? (
+              <i className="bx bx-menu-alt-right"></i>
+            ) : (
+              <i className="bx bx-x"></i>
+            )}
           </MenuButton>
         </Container>
         <ul>

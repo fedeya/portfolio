@@ -7,7 +7,7 @@ import { ThemeContext } from '../../context/theme/ThemeContext';
 const Container = styled.div`
   width: 95%;
   margin: 0 auto;
-  
+
   h1 {
     color: var(--orange);
     text-align: center;
@@ -22,7 +22,7 @@ const Form = styled.form`
   justify-content: center;
   width: 90%;
   margin: 0 auto;
-  background-color: ${props => props.dark ? '#383A3F' : '#F2F2F2'};
+  background-color: ${props => (props.dark ? '#383A3F' : '#F2F2F2')};
   padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -42,7 +42,7 @@ const Field = styled.input`
   outline: none;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: ${props => props.dark ? '#F3F3F3' : '#FDFDFD'};
+  background-color: ${props => (props.dark ? '#F3F3F3' : '#FDFDFD')};
 `;
 
 const FieldArea = styled.textarea`
@@ -54,7 +54,7 @@ const FieldArea = styled.textarea`
   outline: none;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: ${props => props.dark ? '#F3F3F3' : '#FDFDFD'};
+  background-color: ${props => (props.dark ? '#F3F3F3' : '#FDFDFD')};
 `;
 
 const ButtonForm = styled(Button)`
@@ -64,27 +64,22 @@ const ButtonForm = styled(Button)`
 `;
 
 function ContactContent() {
-
   const { dark } = useContext(ThemeContext);
 
   return (
     <Container>
       <h1>Contact</h1>
-      <Form dark={dark} method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
+      <Form
+        dark={dark}
+        method="post"
+        netlify-honeypot="bot-field"
+        data-netlify="true"
+        name="contact"
+      >
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="contact" />
-        <Field
-          type="text"
-          placeholder="Name"
-          name="name"
-          dark={dark}
-        />
-        <Field
-          type="email"
-          placeholder="Email"
-          name="email"
-          dark={dark}
-        />
+        <Field type="text" placeholder="Name" name="name" dark={dark} />
+        <Field type="email" placeholder="Email" name="email" dark={dark} />
         <FieldArea
           type="text"
           placeholder="Message"
@@ -94,7 +89,7 @@ function ContactContent() {
         <ButtonForm>Send</ButtonForm>
       </Form>
     </Container>
-  )
+  );
 }
 
 export default ContactContent;

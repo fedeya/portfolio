@@ -46,7 +46,7 @@ export const ButtonLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  transition: all 500ms ease; 
+  transition: all 500ms ease;
   color: var(--dark);
 
   &:hover {

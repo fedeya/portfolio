@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const Skill = styled.div`
-  color: ${props => props.color ? props.color : 'var(--white)'};
+  color: ${props => (props.color ? props.color : 'var(--white)')};
   margin: 20px;
 
   i {
@@ -26,17 +26,14 @@ const Skill = styled.div`
 `;
 
 function Skills() {
-
   return (
     <Container>
-      {
-        skills.content.map(skill => (
-          <Skill key={skill.name} color={skill.color}>
-            <i className={skill.logo}></i>
-            <h3>{skill.name}</h3>
-          </Skill>
-        ))
-      }
+      {skills.content.map(skill => (
+        <Skill key={skill.name} color={skill.color}>
+          <i className={skill.logo}></i>
+          <h3>{skill.name}</h3>
+        </Skill>
+      ))}
     </Container>
   );
 }
