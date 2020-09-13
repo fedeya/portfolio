@@ -36,7 +36,7 @@ const Icon = styled.i`
 `;
 
 const Title = styled.h1`
-  color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
+  color: ${props => (props.dark ? 'var(--white)' : 'var(--black)')};
   justify-self: flex-start;
 
   span.color {
@@ -57,7 +57,17 @@ const Title = styled.h1`
 
 const Image = styled(Img)`
   border-radius: 50%;
-  clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  clip-path: polygon(
+    50% 0%,
+    83% 12%,
+    100% 43%,
+    94% 78%,
+    68% 100%,
+    32% 100%,
+    6% 78%,
+    0% 43%,
+    17% 12%
+  );
   z-index: -1;
 
   @media screen and (min-width: 768px) {
@@ -67,7 +77,6 @@ const Image = styled(Img)`
 `;
 
 function HomeContent() {
-
   const { dark } = useContext(ThemeContext);
 
   const { image } = useStaticQuery(graphql`
@@ -82,7 +91,6 @@ function HomeContent() {
     }
   `);
 
-
   return (
     <Container>
       <Image alt="Me" fixed={image.sharp.fixed} />
@@ -90,8 +98,8 @@ function HomeContent() {
         <Title dark={dark}>
           <span className="block">
             I’m <span className="color">Federico Minaya</span>.
-            </span>
-          <span className="color block">Frontend Developer</span>
+          </span>
+          <span className="color block">Full Stack Developer</span>
         </Title>
         <ButtonLink aria-label="Next" to="/about">
           Next <Icon className="bx bx-right-arrow-alt"></Icon>

@@ -22,16 +22,13 @@ const ProjectList = styled.div`
 `;
 
 function ProjectsContent() {
-
   return (
     <Container>
       <h1>Projects</h1>
       <ProjectList>
-        {
-          projects.projects.map(project => (
-            <Project key={project.title} project={project} />
-          ))
-        }
+        {projects.projects.map(project => (
+          <Project key={project.title} project={project} />
+        ))}
       </ProjectList>
     </Container>
   );

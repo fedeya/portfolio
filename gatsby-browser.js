@@ -5,8 +5,6 @@ import ThemeProvider from './src/context/theme/ThemeContext';
 
 export const wrapRootElement = ({ element }) => (
   <AboutProvider>
-    <ThemeProvider>
-      {element}
-    </ThemeProvider>
+    <ThemeProvider>{element}</ThemeProvider>
   </AboutProvider>
 );

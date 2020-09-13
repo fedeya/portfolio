@@ -7,7 +7,7 @@ import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const Card = styled.div`
   border-radius: 10px;
-  background-color: ${props => props.dark ? '#383A3F' : '#F2F2F2'};
+  background-color: ${props => (props.dark ? '#383A3F' : '#F2F2F2')};
   margin: 1.5rem;
   width: 70%;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -36,7 +36,7 @@ const Card = styled.div`
 const IconLink = styled.a`
   font-size: 3rem;
   text-align: center;
-  color: ${props => props.dark ? 'var(--white)' : 'var(--black)'};
+  color: ${props => (props.dark ? 'var(--white)' : 'var(--black)')};
 `;
 
 const Icons = styled.div`
@@ -56,12 +56,11 @@ const TextContent = styled.div`
 `;
 
 function Project({ project }) {
-
   const { dark } = useContext(ThemeContext);
 
   const { images } = useStaticQuery(graphql`
     query {
-      images: allFile(filter: { relativeDirectory: {eq: "projects"} }) {
+      images: allFile(filter: { relativeDirectory: { eq: "projects" } }) {
         nodes {
           name
           sharp: childImageSharp {
@@ -82,20 +81,26 @@ function Project({ project }) {
       <TextContent>
         <h2>{project.title}</h2>
         <Icons>
-          {
-            project.repo && (
-              <IconLink dark={dark} href={project.repo} target="_blank" rel="noopener noreferrer">
-                <i className="bx bxl-github"></i>
-              </IconLink>
-            )
-          }
-          {
-            project.link && (
-              <IconLink dark={dark} href={project.link} target="_blank" rel="noopener noreferrer">
-                <i className="bx bx-link"></i>
-              </IconLink>
-            )
-          }
+          {project.repo && (
+            <IconLink
+              dark={dark}
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bx bxl-github"></i>
+            </IconLink>
+          )}
+          {project.link && (
+            <IconLink
+              dark={dark}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bx bx-link"></i>
+            </IconLink>
+          )}
         </Icons>
       </TextContent>
     </Card>
