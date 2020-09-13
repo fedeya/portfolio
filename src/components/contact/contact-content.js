@@ -59,6 +59,7 @@ const FieldArea = styled.textarea`
   margin: 0.6rem 0;
   border: none;
   outline: none;
+  resize: vertical;
   border: 1px solid #ccc;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   background-color: ${props => (props.dark ? '#F3F3F3' : '#FDFDFD')};
