@@ -8,8 +8,6 @@ import { ButtonLink } from '../ui/button';
 import { ThemeContext } from '../../context/theme/ThemeContext';
 
 const Container = styled.div`
-  /* background-color: var(--dark); */
-  /* width: 100%; */
   width: 95%;
   margin: 0 auto;
   display: flex;
@@ -17,10 +15,10 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  height: 86vh;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    margin-top: 30px;
   }
 `;
 
@@ -38,6 +36,7 @@ const Icon = styled.i`
 const Title = styled.h1`
   color: ${props => (props.dark ? 'var(--white)' : 'var(--black)')};
   justify-self: flex-start;
+  text-align: center;
 
   span.color {
     color: var(--orange);
@@ -46,6 +45,7 @@ const Title = styled.h1`
   span.block {
     display: block;
   }
+
   @media screen and (min-width: 768px) {
     font-size: 2.1rem;
   }
@@ -57,18 +57,7 @@ const Title = styled.h1`
 
 const Image = styled(Img)`
   border-radius: 50%;
-  clip-path: polygon(
-    50% 0%,
-    83% 12%,
-    100% 43%,
-    94% 78%,
-    68% 100%,
-    32% 100%,
-    6% 78%,
-    0% 43%,
-    17% 12%
-  );
-  z-index: -1;
+  z-index: 1;
 
   @media screen and (min-width: 768px) {
     order: 2;

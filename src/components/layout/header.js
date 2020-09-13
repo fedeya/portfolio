@@ -17,7 +17,7 @@ const Nav = styled.nav`
   margin: 0;
   position: ${props => (props.opened ? 'fixed' : 'sticky')};
   height: ${props => (props.opened ? '100%' : 'auto')};
-  width: ${props => (props.opened ? '100%' : 'auto')};
+  width: 100%;
   top: 0px;
   left: 0px;
   z-index: 10;
@@ -50,10 +50,14 @@ const Nav = styled.nav`
 
     @media screen and (min-width: 768px) {
       display: flex;
-      position: sticky;
-      align-items: flex-start;
-      top: 10;
     }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    position: sticky;
+    width: 100%;
+    top: 0;
   }
 `;
 
@@ -118,7 +122,7 @@ const MenuButton = styled.button`
     }
 
     100% {
-      transform: scale(90deg);
+      transform: rotate(90deg);
     }
   }
 
@@ -144,6 +148,7 @@ const DarkModeButton = styled.button`
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
 `;
